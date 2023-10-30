@@ -1,0 +1,41 @@
+data_image0
+_chemical_formula_structural       SnSi3Ni12
+_chemical_formula_sum              "Sn1 Si3 Ni12"
+_cell_length_a       7.009344
+_cell_length_b       7.009344
+_cell_length_c       3.504672
+_cell_angle_alpha    90.0
+_cell_angle_beta     90.0
+_cell_angle_gamma    90.0
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Sn  Sn1       1.0  0.0  0.0  0.0  1.0000
+  Si  Si1       1.0  1.4068023077855285e-32  0.5  0.0  1.0000
+  Si  Si2       1.0  0.5  0.0  0.0  1.0000
+  Si  Si3       1.0  0.49999999999999994  0.5  4.2204069233565854e-32  1.0000
+  Ni  Ni1       1.0  7.034011538927643e-33  0.25  0.49999999999999994  1.0000
+  Ni  Ni2       1.0  2.813604615571057e-32  0.75  0.49999999999999983  1.0000
+  Ni  Ni3       1.0  0.49999999999999994  0.25  0.49999999999999983  1.0000
+  Ni  Ni4       1.0  0.5  0.75  0.49999999999999994  1.0000
+  Ni  Ni5       1.0  0.24999999999999997  0.25  2.1102034616782927e-32  1.0000
+  Ni  Ni6       1.0  0.25  0.75  0.0  1.0000
+  Ni  Ni7       1.0  0.75  0.25  2.813604615571057e-32  1.0000
+  Ni  Ni8       1.0  0.75  0.75  0.0  1.0000
+  Ni  Ni9       1.0  0.25  0.0  0.49999999999999994  1.0000
+  Ni  Ni10      1.0  0.25000000000000006  0.5  0.49999999999999983  1.0000
+  Ni  Ni11      1.0  0.75  0.0  0.49999999999999983  1.0000
+  Ni  Ni12      1.0  0.7499999999999999  0.5  0.49999999999999994  1.0000

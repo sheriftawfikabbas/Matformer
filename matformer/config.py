@@ -130,6 +130,7 @@ class TrainingConfig(BaseSettings):
 
     # dataset configuration
     dataset: Literal[
+        "dft_3d_2021",
         "dft_3d",
         "megnet",
     ] = "dft_3d"

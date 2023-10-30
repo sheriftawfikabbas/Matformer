@@ -33,4 +33,4 @@ props = [
     "dfpt_piezo_max_eij",
     "dfpt_piezo_max_dij",
 ]
-train_prop_model(learning_rate=0.001,name="matformer", prop=props[0], pyg_input=True, n_epochs=500, batch_size=64, use_lattice=True, output_dir="./matformer_jarvis_formation_energy", use_angle=False, save_dataloader=False)
+train_prop_model(learning_rate=0.001,name="matformer", prop=props[0], pyg_input=True, n_epochs=500, batch_size=64, use_lattice=True, output_dir="./matformer", use_angle=False, save_dataloader=False)

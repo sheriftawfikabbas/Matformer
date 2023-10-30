@@ -1,0 +1,37 @@
+data_image0
+_chemical_formula_structural       Cu4O4SO3
+_chemical_formula_sum              "Cu4 O7 S1"
+_cell_length_a       5.489267997448434
+_cell_length_b       11.370270639591563
+_cell_length_c       5.699451229917752
+_cell_angle_alpha    86.66801922271883
+_cell_angle_beta     76.0673864050722
+_cell_angle_gamma    76.03159121344657
+
+_space_group_name_H-M_alt    "P 1"
+_space_group_IT_number       1
+
+loop_
+  _space_group_symop_operation_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_type_symbol
+  _atom_site_label
+  _atom_site_symmetry_multiplicity
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_occupancy
+  Cu  Cu1       1.0  0.25  1.4646393121718472e-17  0.0  1.0000
+  Cu  Cu2       1.0  0.25  0.5  0.0  1.0000
+  Cu  Cu3       1.0  0.75  5.858557248687389e-17  0.0  1.0000
+  Cu  Cu4       1.0  0.7500000000000001  0.5000000000000001  0.0  1.0000
+  O   O1        1.0  0.052994  0.39401200000000003  0.0  1.0000
+  O   O2        1.0  0.05299400000000008  0.894012  0.9999999999999999  1.0000
+  O   O3        1.0  0.5529940000000001  0.39401200000000003  0.9999999999999999  1.0000
+  O   O4        1.0  0.5529939999999999  0.8940120000000003  0.9999999999999999  1.0000
+  S   S1        1.0  0.4470060000000001  0.10598800000000003  1.9512457530891207e-17  1.0000
+  O   O5        1.0  0.4470060000000002  0.6059880000000001  0.0  1.0000
+  O   O6        1.0  0.9470060000000002  0.10598800000000004  0.0  1.0000
+  O   O7        1.0  0.9470060000000001  0.6059880000000001  0.0  1.0000

@@ -121,6 +121,7 @@ def train_dgl(
     test_only=False,
     use_save=True,
     mp_id_list=None,
+    std_train=None
 ):
     """
     `config` should conform to matformer.conf.TrainingConfig, and
@@ -292,12 +293,12 @@ def train_dgl(
         device=device,
     )
     if test_only:
-        checkpoint_tmp = torch.load('/your_model_path.pt')
+        checkpoint_tmp = torch.load('/home/abshe/Matformer/matformer/logs/my_materials_pristine/best_model_5130_neg_mae=-0.0743.pt')
         to_load = {
             "model": net,
-            "optimizer": optimizer,
-            "lr_scheduler": scheduler,
-            "trainer": trainer,
+            # "optimizer": optimizer,
+            # "lr_scheduler": scheduler,
+            # "trainer": trainer,
         }
         Checkpoint.load_objects(to_load=to_load, checkpoint=checkpoint_tmp)
         net.eval()
