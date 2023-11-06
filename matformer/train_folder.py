@@ -209,7 +209,8 @@ def train_for_folder(
             test_loader,
             prepare_batch,
         ],
-        std_train=std_train
+        std_train=std_train,
+        test_only=True
     )
     t2 = time.time()
     print("Time taken (s):", t2 - t1)

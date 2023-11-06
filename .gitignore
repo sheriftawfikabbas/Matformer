@@ -137,4 +137,7 @@ dmypy.json
 *.pt
 history_*.json
 *.zip
-alignn/scripts/results/
+matformer/scripts/
+matformer/logs/
+
+

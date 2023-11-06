@@ -20,10 +20,11 @@ import argparse
 import json
 import glob
 import pandas as pd
-structures_folder = '/home/abshe/Matformer/my_materials/deformed_materials/'
+from jarvis.db.figshare import data as jdata
+structures_folder = '/home/abshe/Matformer/my_materials/pristine_materials/'
 config_file = '/home/abshe/Matformer/matformer/logs/my_materials_pristine/config.json'
 config = json.load(open(config_file))
-id_prop = pd.read_csv('/home/abshe/Matformer/my_materials/deformed_materials/id_prop.csv',index_col=0,header=None)
+id_prop = pd.read_csv('/home/abshe/Matformer/my_materials/pristine_materials/id_prop.csv',index_col=0,header=None)
 device = "cpu"
 # if torch.cuda.is_available():
 #     device = torch.device("cuda")
@@ -54,23 +55,84 @@ comparison = []
 from  matformer.graphs import PygGraph
 MAE = 0
 count = 0
-for i,r in id_prop.iterrows():
-    structure = Atoms.from_poscar(structures_folder + i)
-    print(torch.tensor(r.to_numpy()))
-    g, lg = PygGraph.atom_dgl_multigraph(structure)
-    print(g)
-    out_data = (
-        net([g.to(device), lg.to(device), None])
-        .detach()
-        .cpu()
-        .numpy()
-        .flatten()
-        .tolist()[0]
-    )
-    comparison += [[i, r.values[0],out_data]]
-    MAE += abs(r.values[0]-out_data)
-    count += 1
 
+# dat = []
+
+# dataset_test = [dat[x] for x in id_test]
+
+# test_data,_,_ = get_pyg_dataset(
+#         dataset=dataset_test,
+#         id_tag=id_tag,
+#         atom_features=atom_features,
+#         target=target,
+#         neighbor_strategy=neighbor_strategy,
+#         use_canonize=use_canonize,
+#         name=dataset,
+#         line_graph=line_graph,
+#         cutoff=cutoff,
+#         max_neighbors=max_neighbors,
+#         classification=classification_threshold is not None,
+#         output_dir=output_dir,
+#         tmp_name="test_data",
+#         use_lattice=use_lattice,
+#         use_angle=use_angle,
+#         use_save=False,
+#         mean_train=mean_train,
+#         std_train=std_train,
+#     )
+
+# test_loader = DataLoader(
+#         test_data,
+#         batch_size=1,
+#         shuffle=False,
+#         collate_fn=collate_fn,
+#         drop_last=False,
+#         num_workers=workers,
+#         pin_memory=pin_memory,
+#     )
+
+
+# datajvis = jdata('dft_3d_2021')
+# data = datajvis[:100]
+
+
+# for d in data:
+for i,r in id_prop.iterrows():
+    with torch.no_grad():
+        
+        structure = Atoms.from_poscar(structures_folder + i)
+        # structure = Atoms.from_dict(d["atoms"])
+
+        # print(torch.tensor(r.to_numpy()))
+        g, lg = PygGraph.atom_dgl_multigraph(structure,
+                                            neighbor_strategy=config.neighbor_strategy,
+                cutoff=config.cutoff,
+                atom_features=config.atom_features,
+                max_neighbors=config.max_neighbors,
+                compute_line_graph=True,
+                use_canonize=config.use_canonize,
+                use_lattice=config.use_lattice,
+                use_angle=config.use_angle,)
+
+        g.batch = torch.zeros(g.x.shape[0], dtype=torch.int64)
+        print(g)
+        out_data = (
+            net([g.to(device), lg.to(device), None])
+            .detach()
+            .cpu()
+            .numpy()
+            .flatten()
+            .tolist()[0]
+        )
+        comparison += [[i, r.values[0],out_data]]
+        MAE += abs(r.values[0]-out_data)      
+        # comparison += [[d["formation_energy_peratom"],out_data]]
+
+        # MAE += abs(d["formation_energy_peratom"]-out_data)
+        count += 1
+
+        if count == 100:
+            break
 
     # cvn = Spacegroup3D(structure).conventional_standard_structure
     # g, lg = Graph.atom_dgl_multigraph(cvn)
